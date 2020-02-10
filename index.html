@@ -13,11 +13,26 @@
     }
     body {
         text-align: center;
+        background-color: white;
+    }
+    .layer {
+        width: 100vw;
+        height: 100vh;
+        display: none;
+        background-color: white;
+        z-index: 3;
     }
     </style>
 </head>
 <body>
+    <div OVER class="layer" id="aslayer"><h1>코스를 선택하세요</h1> <img src="/course-number/subtract.png"> <img src="/course-number/add.png" style="float: right"> </div>
     <h1>코스를 선택하세요</h1>
-    <img src="/course-number/add_subtract.png">
+    <img src="/course-number/add_subtract.png" id="add_subtract">
+    <script>
+    document.getElementById('add_subtract').onclick = function() {
+        document.getElementById('aslayer').style.display = "block";
+
+    }
+    </script>
 </body>
 </html>
