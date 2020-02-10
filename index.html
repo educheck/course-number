@@ -16,8 +16,8 @@
         background-color: white;
     }
     .layer {
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
         display: none;
         background-color: white;
         z-index: 3;
@@ -26,10 +26,25 @@
     img {
         cursor: pointer;
     }
+    .toplayer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 4;
+        background-color: white;
+        display: none;
+    }
     </style>
 </head>
 <body>
     <div OVER class="layer" id="aslayer"><h1>코스를 선택하세요</h1> <p><img src="/course-number/subtract.png"> <img src="/course-number/add.png"></p> </div>
+    <div OVER class="toplayer" id="subtract"><h1>가르기</h1>
+    
+    </div>
+    
+    
+    
+    
     <h1>코스를 선택하세요</h1>
     <img src="/course-number/add_subtract.png" id="add_subtract">
     <script>
