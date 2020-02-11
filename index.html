@@ -64,7 +64,7 @@
     <span><img src="/one.png" id="su1"> <img src="/two.png" id="su2"> <img src="/three.png" id="su3"> <img src="/four.png" id="su4"> <img src="/five.png" id="su5"> <img src="/six.png" id="su6"> <img src="/seven.png" id="su7"> </span>
     </div>
     <div OVER3 class="twotoplayer" id="sub1"><img src="/course-number/step1.png"><h2>돌이 5개 있어요. 가르기 버튼을 눌러서 갈라보세요.</h2><span><img src="/course-number/su1_unsubtract.png" id="su1_originalimg"><button id="su1_button">가르기</button></span><br><br><br><a href="httpswww.freepik.comfree-photos-vectorsbuildingBuilding"> vector created by macrovector - www.freepik.com</a></div>
-    <div OVER3 class="twotoplayer" id="sub1_step2"><img src="/course-number/step2.png"><br><img src="/course-number/su1_step2ex.png"><br><br><h2>빈칸을 채워보세요.</h2><span><img src="/course-number/su1_step2_q1.png" id="su1_step2q1">&nbsp;<img src="/course-number/su1_step2_q2.png" id="su1_step2q2"></span><br><span><input id="su1_step2q1ans" class="sinput">&nbsp;<input id="su1_step2q2ans" class="sinput"></span></div>
+    <div OVER3 class="twotoplayer" id="sub1_step2"><img src="/course-number/step2.png"><br><img src="/course-number/su1_step2ex.png"><br><br><h2>빈칸을 채워보세요.</h2><span><img src="/course-number/su1_step2_q1.png" id="su1_step2q1">&nbsp;<img src="/course-number/su1_step2_q2.png" id="su1_step2q2"></span><br><input id="su1_step2q1ans" class="sinput">&nbsp;<input id="su1_step2q2ans" class="sinput"></div>
     
     
     
@@ -97,9 +97,12 @@
                 document.getElementById('su1_button').innerText = "다음";
             }
         });
-        $("#su1_step2q1ans").css("width", $("#su1_step2q1").width);
-        $("#su1_step2q2ans").css("width", $("#su1_step2q2").width);
+        $("#su1_step2q1ans").css("width", $("#su1_step2q1").css("width") + "px");
+        $("#su1_step2q2ans").css("width", $("#su1_step2q2").css("width") + "px");
         $(".sinput").attr("placeholder", "여기에 입력하세요.");
+        $("#su1_step2q1ans").css("position", "absolute");
+        $("#su1_step2q1ans").css("left", parseInt($("#su1_step2q1").css("left")) * 1.5 + "px");
+        $("#su1_step2q1ans").css("top", parseInt($("#su1_step2q1").css("top")) + parseInt($("#su1_step2q1").css("height")) + 30 + "px");
     </script>
 </body>
 </html>
