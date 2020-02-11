@@ -91,7 +91,8 @@
             document.getElementById('su1_button').id = "su1_next";
         });
         $("#su1_next").on("click", function() {
-
+            $("#sub1_step2").css("display", "block");
+            $("#sub1").css("display", "none");
         })
         $("#su1_step2q1ans").css("width", $("#su1_step2q1").width);
         $("#su1_step2q2ans").css("width", $("#su1_step2q2").width);
