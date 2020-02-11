@@ -45,6 +45,16 @@
     h2 {
         font-family:'CookierunL';
     }
+    .sinput {
+        border: 3px solid #ccc;
+        padding: 5px 3px;
+        outline: none;
+        box-sizing: border-box;
+        transition: 0.5s;
+    }
+    .sinput:focus {
+        border: 3px solid #555;
+    }
     </style>
 </head>
 <body>
@@ -52,8 +62,8 @@
     <div OVER2 class="toplayer" id="subtract"><h1>가르기</h1>
     <span><img src="/one.png" id="su1"> <img src="/two.png" id="su2"> <img src="/three.png" id="su3"> <img src="/four.png" id="su4"> <img src="/five.png" id="su5"> <img src="/six.png" id="su6"> <img src="/seven.png" id="su7"> </span>
     </div>
-    <div OVER3 class="twotoplayer" id="sub1"><h2>돌이 5개 있어요. 가르기 버튼을 눌러서 갈라보세요.</h2><span><img src="/course-number/su1_unsubtract.png" id="su1_originalimg"><button id="su1_button">가르기</button></span></div>
-    
+    <div OVER3 class="twotoplayer" id="sub1"><img src="/course-number/step1.png"><h2>돌이 5개 있어요. 가르기 버튼을 눌러서 갈라보세요.</h2><span><img src="/course-number/su1_unsubtract.png" id="su1_originalimg"><button id="su1_button">가르기</button></span><br><br><br><a href="httpswww.freepik.comfree-photos-vectorsbuildingBuilding"> vector created by macrovector - www.freepik.com</a></div>
+    <div OVER3 class="twotoplayer" id="sub1_step2"><img src="/course-number/step2.png"><img src="/course-number/su1_step2ex.png"><br><br><h2>빈칸을 채워보세요.</h2><span><img src="/course-number/su1_step2_q1.png" id="su1_step2q1">&nbsp;<img src="/course-number/su1_step2_q2.png" id="su1_step2q2"></span><span><input id="su1_step2q1ans" class="sinput">&nbsp;<input id="su1_step2q2ans" class="sinput"></span></div>
     
     
     
@@ -77,7 +87,15 @@
         })
         $("#su1_button").on("click", function() {
             document.getElementById('su1_originalimg').src = "/course-number/su1_subtract.png";
+            document.getElementById('su1_button').textContent = "다음";
+            document.getElementById('su1_button').id = "su1_next";
         });
+        $("#su1_next").on("click", function() {
+
+        })
+        $("#su1_step2q1ans").css("width", $("#su1_step2q1").width);
+        $("#su1_step2q2ans").css("width", $("#su1_step2q2").width);
+        $(".sinput").attr("placeholder", "여기에 입력하세요.");
     </script>
 </body>
 </html>
