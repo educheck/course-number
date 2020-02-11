@@ -87,8 +87,8 @@
         })
         $("#su1_button").on("click", function() {
             document.getElementById('su1_originalimg').src = "/course-number/su1_subtract.png";
-            $("su1_button").text("다음");
-            $("su1_button").attr("id", "su1_next");
+            document.getElementById('su1_button').innerText = "다음";
+            document.getElementById('su1_button').id = "su1_next";
         });
         $("#su1_next").on("click", function() {
             $("#sub1_step2").css("display", "block");
