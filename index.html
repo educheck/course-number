@@ -42,6 +42,9 @@
         background-color: white;
         display: none;
     }
+    h2 {
+        font-family:'CookierunL';
+    }
     </style>
 </head>
 <body>
@@ -49,7 +52,7 @@
     <div OVER2 class="toplayer" id="subtract"><h1>가르기</h1>
     <span><img src="/one.png" id="su1"> <img src="/two.png" id="su2"> <img src="/three.png" id="su3"> <img src="/four.png" id="su4"> <img src="/five.png" id="su5"> <img src="/six.png" id="su6"> <img src="/seven.png" id="su7"> </span>
     </div>
-    <div OVER3 class="twotoplayer" id="sub1"></div>
+    <div OVER3 class="twotoplayer" id="sub1"><h2>돌이 5개 있어요. 가르기 버튼을 눌러서 갈라보세요.</h2><span><img src="/course-number/su1_unsubtract.png" id="su1_originalimg"><button id="su1_button">가르기</button></span></div>
     
     
     
@@ -67,5 +70,10 @@
     </script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script> <!-- jQuery -->
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script> <!-- js-cookie -->
+    <script JQUERY>
+        $("#su1_button").on("click", function() {
+            document.getElementById('su1_originalimg').src = "/course-number/su1_subtract.png";
+        });
+    </script>
 </body>
 </html>
