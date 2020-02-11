@@ -88,14 +88,15 @@
             $("#subtract").css("display", "none");
         })
         $("#su1_button").on("click", function() {
-            document.getElementById('su1_originalimg').src = "/course-number/su1_subtract.png";
-            document.getElementById('su1_button').innerText = "다음";
-            su1step1 = document.getElementById('su1_button');
+            if($("#su1_button").text = "다음") {
+                $("#sub1_step2").css("display", "block");
+                $("#sub1").css("display", "none");
+            }
+            else {
+                document.getElementById('su1_originalimg').src = "/course-number/su1_subtract.png";
+                document.getElementById('su1_button').innerText = "다음";
+            }
         });
-        su1step1.onclick = function() {
-            $("#sub1_step2").css("display", "block");
-            $("#sub1").css("display", "none");
-        }
         $("#su1_step2q1ans").css("width", $("#su1_step2q1").width);
         $("#su1_step2q2ans").css("width", $("#su1_step2q2").width);
         $(".sinput").attr("placeholder", "여기에 입력하세요.");
