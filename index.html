@@ -99,7 +99,7 @@
         });
         $(".sinput").attr("placeholder", "여기에 입력하세요.");
         $("#su1_step2q1sub").on("click", function() {
-            if($("#su1_step2q1ans").val() === "4" || $("#su1_step2q1ans").val() === 4) {
+            if($("#su1_step2q1ans").val() == "4" || $("#su1_step2q1ans").val() == 4) {
                 $("#su1_step2q1ans").attr("disabled", "disabled");
                 $("#su1_step2q1ans").val("정답입니다!");
             }
@@ -109,7 +109,7 @@
             }
         });
         $("#su1_step2q2sub").on("click", function() {
-            if($("#su1_step2q2ans").val() === "2" || $("#su1_step2q2ans").val() === 2) {
+            if($("#su1_step2q2ans").val() == "2" || $("#su1_step2q2ans").val() == 2) {
                 $("#su1_step2q2ans").attr("disabled", "disabled");
                 $("#su1_step2q2ans").val("정답입니다!");
             }
@@ -118,7 +118,6 @@
                 console.log($("#su1_step2q2ans").val());
             }
         });
-        
     </script>
 </body>
 </html>
