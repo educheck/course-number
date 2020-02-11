@@ -81,6 +81,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script> <!-- jQuery -->
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script> <!-- js-cookie -->
     <script JQUERY>
+        var su1step1;
         $("#su1").on("click", function() {
             $("#sub1").css("display", "block");
             $("#subtract").css("display", "none");
@@ -88,12 +89,12 @@
         $("#su1_button").on("click", function() {
             document.getElementById('su1_originalimg').src = "/course-number/su1_subtract.png";
             document.getElementById('su1_button').innerText = "다음";
-            document.getElementById('su1_button').id = "su1_next";
+            su1step1 = document.getElementById('su1_button');
         });
-        $("#su1_next").on("click", function() {
+        su1step1.onclick = function() {
             $("#sub1_step2").css("display", "block");
             $("#sub1").css("display", "none");
-        })
+        }
         $("#su1_step2q1ans").css("width", $("#su1_step2q1").width);
         $("#su1_step2q2ans").css("width", $("#su1_step2q2").width);
         $(".sinput").attr("placeholder", "여기에 입력하세요.");
