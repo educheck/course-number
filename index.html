@@ -71,6 +71,10 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script> <!-- jQuery -->
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script> <!-- js-cookie -->
     <script JQUERY>
+        $("#su1").on("click", function() {
+            $("#sub1").css("display", "block");
+            $("#subtract").css("display", "none");
+        })
         $("#su1_button").on("click", function() {
             document.getElementById('su1_originalimg').src = "/course-number/su1_subtract.png";
         });
