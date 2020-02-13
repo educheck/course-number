@@ -66,16 +66,17 @@
 </head>
 <body>
     <audio src="/course-number/startaud.mp3" id="startaud"></audio>
+    <audio src="/course-number/point.mp3" id="pointaud"></audio>
     <div OVER class="layer" id="aslayer"><h1>코스를 선택하세요</h1> <p><img src="/course-number/subtract.png" id='suimg'> <img src="/course-number/add.png" id="addimg"></p> </div>
     <div OVER2 class="toplayer" id="subtract"><h1>가르기</h1>
     <span><img src="/one.png" id="su1"> <img src="/two.png" id="su2"> <img src="/three.png" id="su3"> <img src="/four.png" id="su4"> <img src="/five.png" id="su5"> <img src="/six.png" id="su6"> <img src="/seven.png" id="su7"> </span>
     </div>
-    <div OVER8><img src="/course-number/star.png" id="star"></div>
+    <div OVER8><img src="/course-number/star.png" id="star"><h2 style="font-size: 1.75em;" id="stars">0</h2></div>
 
     <div OVER3 class="twotoplayer" id="sub1"><img src="/course-number/step1.png"><h2>돌이 5개 있어요. 가르기 버튼을 눌러서 갈라보세요.</h2><span><img src="/course-number/su1_unsubtract.png" id="su1_originalimg"><button id="su1_button">가르기</button></span><br><br><br><a href="https://www.freepik.com/free-photos-vectors/building">Building vector created by macrovector - www.freepik.com</a></div>
     <div OVER3 class="twotoplayer" id="sub1_step2"><img src="/course-number/step2.png"><br><img src="/course-number/su1_step2ex.png"><br><br><h2>빈칸을 채워보세요.</h2><p><img src="/course-number/su1_step2_q1.png" id="su1_step2q1"> <img src="/course-number/su1_step2_q2.png" id="su1_step2q2"></p><br><input id="su1_step2q1ans" class="sinput"><button id="su1_step2q1sub">확인</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="su1_step2q2ans" class="sinput"><button id="su1_step2q2sub">확인</button></div>
     <div OVER3 class="twotoplayer" id="sub1_step3"><img src="/course-number/step3.png"><h2>연습해보아요!</h2><span Q1-Q3><div id="su1_q1" style="width: 30%; float: left;"><img src="/course-number/su1_q1.png"><br><input id="su1_q1a" class="sinput"><button id="su1_q1s">확인</button></div><div id="su1_q2" style="width: 30%; float: left;" ><img src="/course-number/su1_q2.png"><br><input id="su1_q2a" class="sinput"><button id="su1_q2s">확인</button></div><div id="su1_q3" style="width: 30%; float: left;" ><img src="/course-number/su1_q3.png"><br><input id="su1_q3a" class="sinput"><button id="su1_q3s">확인</button></div></span><br><span Q4-Q6><div id="su1_q4" style="width: 30%; float: left;"><img src="/course-number/su1_q4.png"><br><input id="su1_q4a" class="sinput"><button id="su1_q4s">확인</button></div><div id="su1_q5" style="width: 30%; float: left;" ><img src="/course-number/su1_q5.png"><br><input id="su1_q5a" class="sinput"><button id="su1_q5s">확인</button></div><div id="su1_q6" style="width: 30%; float: left;" ><img src="/course-number/su1_q6.png"><br><input id="su1_q6a" class="sinput"><button id="su1_q6s">확인</button></div></span></div>
-    <div OVER3 class="twotoplayer" id="sub1_score"><h1>점수</h1><h1 style="font-size: 8em; margin: 0 0;" id="su1_score">계산중...</h1><h2 id="su1_ment"></h2><audio id="clearstage" src="/course-number/cheer.mp3"></audio></div>
+    <div OVER3 class="twotoplayer" id="sub1_score"><h1>점수</h1><h1 style="font-size: 8em; margin: 0 0;" id="su1_score">계산중...</h1><img src="/course-number/star.png" id="su1_point1" style="display: none;"><img src="/course-number/star.png" id="su1_point2" style="display: none;"><img src="/course-number/star.png" id="su1_point3" style="display: none;"><h2 id="su1_ment"></h2><audio id="clearstage" src="/course-number/cheer.mp3"></audio></div>
     
     
     <h1>코스를 선택하세요</h1>
@@ -137,9 +138,43 @@
                 console.log($("#su1_step2q2ans").val());
             }
         });
-        
+        if(Cookies.get('stars') != 0) {
+            $("#stars").text(Cookies.get('stars'));
+        }
     </script>
-
+    <script fx(STAR)>
+        var fxcur = parseInt(document.getElementById('stars').textContent);
+        function getstar(err, cnt) {
+            if (cnt <= 6) {
+                if (err <= 2) {
+                    document.getElementById('stars').textContent = fxcur + 3;
+                    Cookies.set('stars', fxcur+3, {expires: 7300});
+                }
+                else if(err <= 4) {
+                    $("#stars").text(fxcur + 2);
+                    Cookies.set('stars', fxcur+2, {expires: 7300});
+                }
+                else {
+                    $("#stars").text(fxcur + 1);
+                    Cookies.set('stars', fxcur+1, {expires: 7300});
+                }
+            }
+            else if (cnt <= 8) {
+                if (err <= 3) {
+                    $("#stars").text(fxcur+3);
+                    Cookies.set("stars", fxcur+3, {expires: 7300});
+                }
+                else if(err <= 5) {
+                    $("#stars").text(fxcur+2);
+                    Cookies.set("stars", fxcur+2, {expires: 7300});
+                }
+                else {
+                    $("#stars").text(fxcur+1);
+                    Cookies.set("stars", fxcur+1, {expires: 7300});
+                }
+            }
+        }
+    </script>
     <script SU1>
         var su1e = 0;
         var su1m = document.getElementById('su1_ment');
@@ -158,14 +193,26 @@
                             if(su1e == 2) {su1m.textContent = "90점!!! 잘했지만 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해요!";}
                             if(su1e == 3) {su1m.textContent = "85점!! 잘했지만 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해요!";}
                             $("#su1_score").text(100 - (5 * su1e));
+                            $("#su1_point1").css("display", "block");
+                            $("#su1_point2").css("display", "block");
+                            $("#su1_point3").css("display", "block");
+                            document.getElementById("pointaud").play();
+                            getstar(su1m, 6);
                         }
                         else if(su1e <= 5) {
                             su1m.textContent = "잘했지만 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해요!";
                             $("#su1_score").text(100 - (6 * su1e));
+                            $("#su1_point1").css("display", "block");
+                            $("#su1_point2").css("display", "block");
+                            document.getElementById("pointaud").play();
+                            getstar(su1m, 6);
                         }
                         else {
                             su1m.textContent = "이런! 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해 보아요!";
                             $("#su1_score").text(100 - (7 * su1e));
+                            $("#su1_point1").css("display", "block");
+                            document.getElementById("pointaud").play();
+                            getstar(su1m, 6);
                         }
                         document.getElementById('clearstage').play();
                         
@@ -193,14 +240,26 @@
                             if(su1e == 2) {su1m.textContent = "90점!!! 잘했지만 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해요!";}
                             if(su1e == 3) {su1m.textContent = "85점!! 잘했지만 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해요!";}
                             $("#su1_score").text(100 - (5 * su1e));
+                            $("#su1_point1").css("display", "block");
+                            $("#su1_point2").css("display", "block");
+                            $("#su1_point3").css("display", "block");
+                            document.getElementById("pointaud").play();
+                            getstar(su1m, 6);
                         }
                         else if(su1e <= 5) {
                             su1m.textContent = "잘했지만 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해요!";
                             $("#su1_score").text(100 - (6 * su1e));
+                            $("#su1_point1").css("display", "block");
+                            $("#su1_point2").css("display", "block");
+                            document.getElementById("pointaud").play();
+                            getstar(su1m, 6);
                         }
                         else {
                             su1m.textContent = "이런! 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해 보아요!";
                             $("#su1_score").text(100 - (7 * su1e));
+                            $("#su1_point1").css("display", "block");
+                            document.getElementById("pointaud").play();
+                            getstar(su1m, 6);
                         }
                         document.getElementById('clearstage').play();
                     }
@@ -227,14 +286,26 @@
                             if(su1e == 2) {su1m.textContent = "90점!!! 잘했지만 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해요!";}
                             if(su1e == 3) {su1m.textContent = "85점!! 잘했지만 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해요!";}
                             $("#su1_score").text(100 - (5 * su1e));
+                            $("#su1_point1").css("display", "block");
+                            $("#su1_point2").css("display", "block");
+                            $("#su1_point3").css("display", "block");
+                            document.getElementById("pointaud").play();
+                            getstar(su1m, 6);
                         }
                         else if(su1e <= 5) {
                             su1m.textContent = "잘했지만 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해요!";
                             $("#su1_score").text(100 - (6 * su1e));
+                            $("#su1_point1").css("display", "block");
+                            $("#su1_point2").css("display", "block");
+                            document.getElementById("pointaud").play();
+                            getstar(su1m, 6);
                         }
                         else {
                             su1m.textContent = "이런! 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해 보아요!";
                             $("#su1_score").text(100 - (7 * su1e));
+                            $("#su1_point1").css("display", "block");
+                            document.getElementById("pointaud").play();
+                            getstar(su1m, 6);
                         }
                         document.getElementById('clearstage').play();
                     }
@@ -261,14 +332,26 @@
                             if(su1e == 2) {su1m.textContent = "90점!!! 잘했지만 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해요!";}
                             if(su1e == 3) {su1m.textContent = "85점!! 잘했지만 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해요!";}
                             $("#su1_score").text(100 - (5 * su1e));
+                            $("#su1_point1").css("display", "block");
+                            $("#su1_point2").css("display", "block");
+                            $("#su1_point3").css("display", "block");
+                            document.getElementById("pointaud").play();
+                            getstar(su1m, 6);
                         }
                         else if(su1e <= 5) {
                             su1m.textContent = "잘했지만 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해요!";
                             $("#su1_score").text(100 - (6 * su1e));
+                            $("#su1_point1").css("display", "block");
+                            $("#su1_point2").css("display", "block");
+                            document.getElementById("pointaud").play();
+                            getstar(su1m, 6);
                         }
                         else {
                             su1m.textContent = "이런! 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해 보아요!";
                             $("#su1_score").text(100 - (7 * su1e));
+                            $("#su1_point1").css("display", "block");
+                            document.getElementById("pointaud").play();
+                            getstar(su1m, 6);
                         }
                         document.getElementById('clearstage').play();
                     }
@@ -295,14 +378,26 @@
                             if(su1e == 2) {su1m.textContent = "90점!!! 잘했지만 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해요!";}
                             if(su1e == 3) {su1m.textContent = "85점!! 잘했지만 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해요!";}
                             $("#su1_score").text(100 - (5 * su1e));
+                            $("#su1_point1").css("display", "block");
+                            $("#su1_point2").css("display", "block");
+                            $("#su1_point3").css("display", "block");
+                            document.getElementById("pointaud").play();
+                            getstar(su1m, 6);
                         }
                         else if(su1e <= 5) {
                             su1m.textContent = "잘했지만 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해요!";
                             $("#su1_score").text(100 - (6 * su1e));
+                            $("#su1_point1").css("display", "block");
+                            $("#su1_point2").css("display", "block");
+                            document.getElementById("pointaud").play();
+                            getstar(su1m, 6);
                         }
                         else {
                             su1m.textContent = "이런! 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해 보아요!";
                             $("#su1_score").text(100 - (7 * su1e));
+                            $("#su1_point1").css("display", "block");
+                            document.getElementById("pointaud").play();
+                            getstar(su1m, 6);
                         }
                         document.getElementById('clearstage').play();
                     }
@@ -329,14 +424,26 @@
                             if(su1e == 2) {su1m.textContent = "90점!!! 잘했지만 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해요!";}
                             if(su1e == 3) {su1m.textContent = "85점!! 잘했지만 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해요!";}
                             $("#su1_score").text(100 - (5 * su1e));
+                            $("#su1_point1").css("display", "block");
+                            $("#su1_point2").css("display", "block");
+                            $("#su1_point3").css("display", "block");
+                            document.getElementById("pointaud").play();
+                            getstar(su1m, 6);
                         }
                         else if(su1e <= 5) {
                             su1m.textContent = "잘했지만 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해요!";
                             $("#su1_score").text(100 - (6 * su1e));
+                            $("#su1_point1").css("display", "block");
+                            $("#su1_point2").css("display", "block");
+                            document.getElementById("pointaud").play();
+                            getstar(su1m, 6);
                         }
                         else {
                             su1m.textContent = "이런! 다음 번에는 더 좋은 점수를 얻을 수 있도록 노력해 보아요!";
                             $("#su1_score").text(100 - (7 * su1e));
+                            $("#su1_point1").css("display", "block");
+                            document.getElementById("pointaud").play();
+                            getstar(su1m, 6);
                         }
                         document.getElementById('clearstage').play();
                     }
