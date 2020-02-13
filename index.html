@@ -157,6 +157,7 @@
                 else {
                     $("#stars").text(fxcur + 1);
                     Cookies.set('stars', fxcur+1, {expires: 7300});
+                    console.log(err);
                 }
             }
             else if (cnt <= 8) {
@@ -171,6 +172,7 @@
                 else {
                     $("#stars").text(fxcur+1);
                     Cookies.set("stars", fxcur+1, {expires: 7300});
+                    console.log(err);
                 }
             }
         }
